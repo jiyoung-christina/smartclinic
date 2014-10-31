@@ -1,0 +1,162 @@
+2014-10-15 12:10:53,200 - INFO - sqlite://///Users/lacidjun/recommendadmin/archive/SmartClinicServ/tmp/test.db
+2014-10-15 12:18:13,453 - INFO - mysql://///Users/lacidjun/recommendadmin/archive/SmartClinicServ/tmp/user.db
+2014-10-15 12:18:49,861 - INFO - mysql://///Users/lacidjun/recommendadmin/archive/SmartClinicServ/tmp/user.db
+2014-10-15 12:22:40,795 - INFO - mysql://///Users/lacidjun/recommendadmin/archive/SmartClinicServ/tmp/user.db
+2014-10-15 12:25:22,288 - INFO - mysql://///Users/lacidjun/recommendadmin/archive/SmartClinicServ/tmp/user.db
+2014-10-15 12:28:00,431 - INFO - mysql://///Users/lacidjun/recommendadmin/archive/SmartClinicServ/tmp/user.db
+2014-10-15 12:33:20,837 - INFO - mysql://///Users/lacidjun/recommendadmin/archive/SmartClinicServ/tmp/user.db
+2014-10-15 12:33:39,583 - INFO - mysql://///Users/lacidjun/recommendadmin/archive/SmartClinicServ/tmp/user.db
+2014-10-15 12:35:53,151 - INFO - mysql://///Users/lacidjun/recommendadmin/archive/SmartClinicServ/tmp/user.db
+2014-10-15 12:36:22,055 - INFO - mysql://///Users/lacidjun/recommendadmin/archive/SmartClinicServ/tmp/user.db
+2014-10-15 12:40:10,956 - INFO - mysql://///Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:41:04,150 - INFO - mysql://///Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:42:41,108 - INFO - mysql://///Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:43:09,686 - INFO - mysql://///Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:44:39,764 - INFO - mysql://///Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:45:13,379 - INFO - mysql://///Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:45:33,716 - INFO - mysql://///Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:45:44,043 - INFO - mysql://///Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:46:02,979 - INFO - mysql://///Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:55:40,141 - INFO - mysql://lacidjun:1002@localhost/Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:55:57,283 - INFO - mysql://lacidjun:1002@localhost/Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:58:08,813 - INFO - mysql://root:1002@localhost/Users/lacidjun/WebServer/SmartClinicServ/tmp/user.db
+2014-10-15 12:59:30,814 - INFO - mysql://root:1002@localhostuser.db
+2014-10-15 12:59:47,229 - INFO - mysql://root:1002@localhost/user.db
+2014-10-15 13:00:02,488 - INFO - mysql://root:1002@localhost/user.db
+2014-10-15 13:00:36,109 - INFO - mysql://root:1002@localhost/user.db
+2014-10-15 13:00:38,348 - INFO - mysql://root:1002@localhost/user.db
+2014-10-15 13:03:12,704 - INFO - mysql://root:1002@localhost/user.db
+2014-10-15 13:03:20,574 - INFO - mysql://root:1002@localhost/user.db
+2014-10-15 13:03:31,652 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:03:42,401 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:04:48,442 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:04:55,602 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:04:55,906 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:05:00,357 - INFO - login page
+2014-10-15 13:05:23,068 - INFO - <Request 'http://0.0.0.0:5000/user/regist' [POST]>
+2014-10-15 13:05:23,084 - ERROR - DB error occur : 'latin-1' codec can't encode characters in position 0-2: ordinal not in range(256)
+2014-10-15 13:05:51,743 - INFO - <Request 'http://0.0.0.0:5000/user/regist' [POST]>
+2014-10-15 13:05:51,759 - DEBUG - <email 'lacidjun@gmail.com'>
+2014-10-15 13:05:51,766 - INFO - login page
+2014-10-15 13:05:58,949 - INFO - login page
+2014-10-15 13:06:15,380 - INFO - login page
+2014-10-15 13:07:25,214 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:23:08,766 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:23:09,103 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:23:12,680 - INFO - login page
+2014-10-15 13:23:22,194 - INFO - login page
+2014-10-15 13:23:48,223 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:23:48,550 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:23:49,753 - INFO - login page
+2014-10-15 13:23:52,026 - INFO - login page
+2014-10-15 13:24:00,458 - INFO - login page
+2014-10-15 13:25:14,788 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:25:15,058 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:25:16,277 - INFO - login page
+2014-10-15 13:25:25,989 - INFO - login page
+2014-10-15 13:27:27,958 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:27:28,365 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:27:30,393 - INFO - login page
+2014-10-15 13:27:36,397 - INFO - login page
+2014-10-15 13:28:45,665 - INFO - login page
+2014-10-15 13:32:12,945 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:32:13,257 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:32:20,842 - INFO - login page
+2014-10-15 13:32:26,609 - INFO - login page
+2014-10-15 13:33:32,321 - INFO - login page
+2014-10-15 13:33:40,290 - INFO - <Request 'http://localhost:5000/user/regist' [POST]>
+2014-10-15 13:33:40,305 - ERROR - DB error occur : (IntegrityError) (1062, "Duplicate entry 'lacidjun@gmail.com' for key 'PRIMARY'") 'INSERT INTO users (email, address, password, category, shopname, registered_on, activated) VALUES (%s, %s, %s, %s, %s, %s, %s)' (u'lacidjun@gmail.com', u'naver', 'pbkdf2:sha1:1000$ZO3XKOPQ$2b185aae689d21794ef3e2b962da7e2f9039165c', u'food', u'base', datetime.datetime(2014, 10, 15, 13, 33, 40, 302753), 0)
+2014-10-15 13:35:28,913 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:39:06,575 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:39:06,919 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:39:25,562 - INFO - login page
+2014-10-15 13:46:09,558 - INFO - login page
+2014-10-15 13:46:35,223 - INFO - login page
+2014-10-15 13:46:35,227 - ERROR - (OperationalError) (1054, "Unknown column 'users.user_id' in 'field list'") 'SELECT users.email AS users_email, users.address AS users_address, users.password AS users_password, users.user_id AS users_user_id, users.department AS users_department, users.registered_on AS users_registered_on, users.activated AS users_activated \nFROM users \nWHERE users.email = %s \n LIMIT %s' (u'lacidjun@gmail.com', 1)
+2014-10-15 13:48:43,986 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:48:44,334 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:48:44,739 - INFO - login page
+2014-10-15 13:48:50,892 - INFO - login page
+2014-10-15 13:48:50,898 - INFO - User email does not exist
+2014-10-15 13:49:17,374 - INFO - <Request 'http://localhost:5000/user/regist' [POST]>
+2014-10-15 13:49:17,402 - ERROR - DB error occur : 400: Bad Request
+2014-10-15 13:50:42,398 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:50:45,415 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:50:45,677 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:50:47,382 - INFO - <Request 'http://localhost:5000/user/regist' [POST]>
+2014-10-15 13:50:47,400 - ERROR - DB error occur : 400: Bad Request
+2014-10-15 13:50:50,164 - INFO - login page
+2014-10-15 13:51:08,638 - INFO - <Request 'http://localhost:5000/user/regist' [POST]>
+2014-10-15 13:51:08,651 - ERROR - DB error occur : 400: Bad Request
+2014-10-15 13:52:27,106 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:52:27,356 - INFO - mysql://root:1002@localhost/user
+2014-10-15 13:52:32,559 - INFO - login page
+2014-10-15 13:53:00,546 - INFO - <Request 'http://localhost:5000/user/regist' [POST]>
+2014-10-15 13:53:00,564 - DEBUG - <email 'lacidjun@gmail.com'>
+2014-10-15 13:53:00,571 - INFO - login page
+2014-10-15 13:53:06,275 - INFO - login page
+2014-10-15 16:07:56,060 - INFO - login page
+2014-10-15 16:08:03,674 - INFO - login page
+2014-10-15 16:31:36,039 - INFO - mysql://root:1002@localhost/user
+2014-10-15 16:31:36,394 - INFO - mysql://root:1002@localhost/user
+2014-10-15 16:31:43,395 - INFO - login page
+2014-10-15 16:31:51,828 - INFO - login page
+2014-10-15 21:18:41,248 - INFO - mysql://root:1002@localhost/user
+2014-10-15 21:18:41,681 - INFO - mysql://root:1002@localhost/user
+2014-10-15 21:18:45,474 - INFO - login page
+2014-10-15 21:19:05,432 - INFO - login page
+2014-10-15 22:01:39,837 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:04:13,683 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:06:29,462 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:07:03,914 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:07:11,659 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:07:21,547 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:07:32,657 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:08:11,013 - INFO - mysql://lacidjun:1002@localhost/user
+2014-10-15 22:08:22,073 - INFO - mysql://lacidjun:1002@localhost/user
+2014-10-15 22:15:20,139 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:15:35,315 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:16:32,676 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:16:33,075 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:16:38,233 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:16:44,765 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:16:55,666 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:18:20,853 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:20:00,111 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:20:00,462 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:20:12,337 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:20:42,702 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:21:09,584 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:21:17,015 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:21:17,338 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:21:34,472 - INFO - login page
+2014-10-15 22:21:45,230 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:22:25,692 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:23:49,775 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:25:40,471 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:26:38,078 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:26:38,454 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:26:52,894 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:29:02,502 - INFO - login page
+2014-10-15 22:29:38,829 - INFO - <Request 'http://0.0.0.0:5000/user/regist' [POST]>
+2014-10-15 22:29:38,846 - DEBUG - <email 'kjy8620@gmail.com'>
+2014-10-15 22:29:38,856 - INFO - login page
+2014-10-15 22:29:48,502 - INFO - login page
+2014-10-15 22:39:35,479 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:39:35,839 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:39:41,030 - INFO - login page
+2014-10-15 22:39:53,848 - INFO - login page
+2014-10-15 22:45:12,029 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:45:12,495 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:45:15,240 - INFO - login page
+2014-10-15 22:45:23,767 - INFO - login page
+2014-10-15 22:47:36,861 - INFO - login page
+2014-10-15 22:47:45,647 - INFO - login page
+2014-10-15 22:53:41,340 - INFO - mysql://root:1002@localhost/user
+2014-10-15 22:53:51,005 - INFO - login page
+2014-10-15 23:13:11,569 - INFO - login page
+2014-10-15 23:13:24,599 - INFO - login page
+2014-10-16 12:25:56,348 - INFO - login page
+2014-10-16 12:26:00,215 - INFO - login page
+2014-10-16 12:26:36,058 - INFO - login page
+2014-10-16 13:28:29,535 - INFO - login page
