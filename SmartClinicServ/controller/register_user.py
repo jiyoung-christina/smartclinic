@@ -10,16 +10,16 @@ from SmartClinicServ.database import dao
 from SmartClinicServ.SmartClinicLogger import Log
 from SmartClinicServ.SmartClinicBlueprint import smartclinic
 from SmartClinicServ.model.user import User
+from SmartClinicServ.model.operator import Operator
 from SmartClinicServ.controller.login import login_required
 
 @smartclinic.route('/user/regist', methods=['GET', 'POST'])
 def register_user():
-    register_error = None
     Log.info(request)
     if request.method == 'POST':
         try:
             user = User(email=request.form['email'], address=request.form['address'], password=generate_password_hash(request.form['password']),
-                        department=request.form['department'], name=request.form['name'], gender=request.form['gender'], user_id=request.form['userid'], activated=False, registered_on=datetime.today())
+                        name=request.form['name'], gender=request.form['gender'])
             dao.add(user)
             dao.commit()
             Log.debug(user)
@@ -32,6 +32,27 @@ def register_user():
             return redirect('login')
     else:
         return redirect('login')
+
+@smartclinic.route('/user/operator_regist', methods=['GET', 'POST'])
+def register_user():
+    Log.info(request)
+    if request.method == 'POST':
+        try:
+            operator = Operator(email=request.form['email'], password=generate_password_hash(request.form['password']),
+                        hospital=request.form['hospital'])
+            dao.add(operator)
+            dao.commit()
+            Log.debug(operator)
+        except Exception as e:
+            error = "DB error occur : " + str(e)
+            Log.error(error)
+            dao.rollback
+            raise e
+        else:
+            return redirect('login')
+    else:
+        return redirect('login')
+
 
 def __get_user(email):
     try:
