@@ -34,7 +34,7 @@ def register_user():
         return redirect('login')
 
 @smartclinic.route('/user/operator_regist', methods=['GET', 'POST'])
-def register_user():
+def register_operator_user():
     Log.info(request)
     if request.method == 'POST':
         try:
