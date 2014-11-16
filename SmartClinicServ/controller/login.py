@@ -9,7 +9,7 @@ from SmartClinicServ.database import dao
 from SmartClinicServ.SmartClinicLogger import Log
 from SmartClinicServ.SmartClinicBlueprint import smartclinic
 from SmartClinicServ.model.user import User
-
+from SmartClinicServ.model.operator import Operator
 @smartclinic.teardown_request
 def close_db_session(exception=None):
     try:
@@ -48,7 +48,7 @@ def login_page():
     Log.info('login page')
     if request.method == 'POST':
         try:
-            email = dao.query(User).filter_by(email = request.form['email']).first()
+            email = dao.query(Operator).filter_by(email = request.form['email']).first()
         except Exception as e:
             Log.error(str(e))
             raise e
@@ -80,4 +80,26 @@ def index_page():
     else:
         return render_template('index.html')
 
+@smartclinic.route('/admin_login', methods=['GET', 'POST'])
+def admin_login():
+    login_error = None
+    Log.info('ADMIN login page')
+    if request.method == 'POST':
+        try:
+            email = dao.query(Operator).filter_by(email = request.form['email']).first()
+        except Exception as e:
+            Log.error(str(e))
+            raise e
+        if email:
+            if not check_password_hash(email.password, request.form['password']):
+                login_error = 'Invalid password'
+            else: #로그인 성공했을때
+                session['user_info'] = email
+                return render_template('index.html'), 200
+        else:
+            login_error = 'User email does not exist'
+            Log.info(login_error)
+            return render_template('admin_login.html'), 400  #user does not exist 출력
+    else:
+        return render_template('admin_login.html')
 

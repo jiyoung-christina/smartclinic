@@ -36,6 +36,7 @@ def register_user():
 @smartclinic.route('/user/operator_regist', methods=['GET', 'POST'])
 def register_operator_user():
     Log.info(request)
+    print request.form['hospital']
     if request.method == 'POST':
         try:
             operator = Operator(email=request.form['email'], password=generate_password_hash(request.form['password']),
@@ -49,9 +50,9 @@ def register_operator_user():
             dao.rollback
             raise e
         else:
-            return redirect('login')
+            return redirect('admin_login')
     else:
-        return redirect('login')
+        return redirect('admin_login')
 
 
 def __get_user(email):

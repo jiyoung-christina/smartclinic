@@ -14,7 +14,7 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8"/>
-<title>일반 유저 로그인 </title>
+<title>병원 정보 입력 임시 페이지  </title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="" name="description"/>
@@ -49,152 +49,64 @@ Purchase: http://themeforest.net/item/conquer-responsive-admin-dashboard-templat
 <!-- BEGIN LOGIN -->
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="login" method="post">
-		<h3 class="form-title">Login to your account</h3>
+	<form class="login-form" action="insert_hospital" method="post">
+		<h3 class="form-title">임시입력페이지</h3>
 		<div class="alert alert-error display-hide">
 			<button class="close" data-close="alert"></button>
 			<span>
-				 Enter any username and password.
+				 병원정보입력: 병원이름, 병원홈페이지주소, 병원전번, 병원진료과목, 병원주소 순
 			</span>
 		</div>
 		<div class="form-group">
 			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-			<label class="control-label visible-ie8 visible-ie9">E-mail</label>
+			<label class="control-label visible-ie8 visible-ie9">Hosp_name</label>
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
-				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="hosp_name" name="hosp_name"/>
 			</div>
 		</div>
+
 		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Password</label>
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">Hosp_page</label>
 			<div class="input-icon">
-				<i class="fa fa-lock"></i>
-				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+				<i class="fa fa-user"></i>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="hosp_page" name="hosp_page"/>
 			</div>
 		</div>
-		<div class="form-actions">
-			<label class="checkbox">
-			<input type="checkbox" name="remember" value="1"/> Remember me </label>
-			<button type="submit" class="btn btn-info pull-right">
-			Login </button>
-		</div>
-		<div class="forget-password">
-			<h4>Forgot your password ?</h4>
-			<p>
-				 no worries, click <a href="javascript:;" id="forget-password">here</a>
-				to reset your password.
-			</p>
-		</div>
-		<div class="create-account">
-			<p>
-				 Don't have an account yet ?&nbsp; <a href="javascript:;" id="register-btn">Create an account</a>
-			</p>
-		</div>
-	</form>
-	<!-- END LOGIN FORM -->
-	<!-- BEGIN FORGOT PASSWORD FORM -->
-	<form class="forget-form" action="index" method="post">
-		<h3>Forget Password ?</h3>
-		<p>
-			 Enter your e-mail address below to reset your password.
-		</p>
-		<div class="form-group">
+        <div class="form-group">
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">Hosp_call</label>
 			<div class="input-icon">
-				<i class="fa fa-envelope"></i>
-				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+				<i class="fa fa-user"></i>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="hosp_call" name="hosp_call"/>
 			</div>
 		</div>
-		<div class="form-actions">
+        <div class="form-group">
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">Hosp_subj</label>
+			<div class="input-icon">
+				<i class="fa fa-user"></i>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="hosp_subj 띄어쓰기로 구분" name="hosp_subj"/>
+			</div>
+		</div>
+
+        <div class="form-group">
+			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+			<label class="control-label visible-ie8 visible-ie9">Hosp_addr</label>
+			<div class="input-icon">
+				<i class="fa fa-user"></i>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="hosp_addr" name="hosp_addr"/>
+			</div>
+		</div>
+        <div class="form-actions">
 			<button type="button" id="back-btn" class="btn btn-default">
 			<i class="m-icon-swapleft"></i> Back </button>
 			<button type="submit" class="btn btn-info pull-right">
 			Submit </button>
 		</div>
 	</form>
-	<!-- END FORGOT PASSWORD FORM -->
-	<!-- BEGIN REGISTRATION FORM -->
-	<form class="register-form" action="user/regist" method="post">
-		<h3>Sign Up</h3>
-		<p>
-			 Enter your personal details below:
-		</p>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">User Id</label>
-			<div class="input-icon">
-				<i class="fa fa-font"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="User Id" name="userid"/>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Address</label>
-			<div class="input-icon">
-				<i class="fa fa-check"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Address" name="address"/>
-			</div>
-		</div>
-        <div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Name</label>
-			<div class="input-icon">
-				<i class="fa fa-check"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Name" name="Name"/>
-			</div>
-		</div>
-        <div class="form-group">
-			<label>
-			<input type="checkbox" name="tnc"/> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-			</label>
-			<div id="register_tnc_error">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">gender</label>
-			<select name="gender" id="select2_sample4" class="select2 form-control">
-				<option value=""></option>
-				<option value="1">women</option>
-                <option value="2">man</option>
-			</select>
-		</div>
-		<p>
-			 Enter your account details below:
-		</p>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">E-mail</label>
-			<div class="input-icon">
-				<i class="fa fa-user"></i>
-				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Password</label>
-			<div class="input-icon">
-				<i class="fa fa-lock"></i>
-				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password"/>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-			<div class="controls">
-				<div class="input-icon">
-					<i class="fa fa-check"></i>
-					<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword"/>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
-			<label>
-			<input type="checkbox" name="tnc"/> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-			</label>
-			<div id="register_tnc_error">
-			</div>
-		</div>
-		<div class="form-actions">
-			<button id="register-back-btn" type="button" class="btn btn-default">
-			<i class="m-icon-swapleft"></i> Back </button>
-			<button type="submit" id="register-submit-btn" class="btn btn-info pull-right">
-			Sign Up <i class="m-icon-swapright m-icon-white"></i>
-			</button>
-		</div>
-	</form>
+	<!-- END LOGIN FORM -->
 	<!-- END REGISTRATION FORM -->
 </div>
 <!-- END LOGIN -->
