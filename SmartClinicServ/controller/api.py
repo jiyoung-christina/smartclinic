@@ -32,6 +32,21 @@ def temp_insert():
     else:
         return render_template('temp_hospital.html')
 
+@smartclinic.route('/delete_hospital', methods=['POST'])
+def temp_delete():
+    if request.method == 'POST':
+        try:
+            hospital = dao.query(Hospital).filter_by(hosp_name = request.form['hosp_name']).first()
+            dao.delete(hospital)
+            dao.commit()
+        except Exception as e:
+            error = "DB error occur : " + str(e)
+            Log.error(error)
+            dao.rollback
+            raise e
+
+    return jsonify(hosp_name = 'test')
+
 
 
 @smartclinic.route('/api/v1/test', methods=['POST', 'GET'])
