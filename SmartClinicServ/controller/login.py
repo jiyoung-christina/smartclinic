@@ -55,6 +55,7 @@ def login_page():
         if email:
             if not check_password_hash(email.password, request.form['password']):
                 login_error = 'Invalid password'
+                return render_template('login.html'), 400
             else: #로그인 성공했을때
                 session['user_info'] = email
                 return render_template('index.html'), 200

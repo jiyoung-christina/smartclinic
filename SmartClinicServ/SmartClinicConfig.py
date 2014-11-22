@@ -4,9 +4,9 @@ __author__ = 'lacidjun'
 
 class SmartClinicConfig(object):
     #: 데이터베이스 연결 URL
-    DB_URL= 'mysql://root:1002@localhost/user?charset=utf8&use_unicode=1'
+    DB_URL= 'mysql://root:1002@localhost/'
     #: 데이터베이스 파일 경로
-    DB_FILE_PATH = ''
+    DB_FILE_PATH = 'user'
     MAX_CONTENT_LENGTH = 10 * 1024 * 1024
     #: 세션 타임아웃은 초(second) 단위(60분)
     PERMANENT_SESSION_LIFETIME = 60 * 60
