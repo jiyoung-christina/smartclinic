@@ -48,7 +48,7 @@ def login_page():
     Log.info('login page')
     if request.method == 'POST':
         try:
-            email = dao.query(Operator).filter_by(email = request.form['email']).first()
+            email = dao.query(User).filter_by(email = request.form['email']).first()
         except Exception as e:
             Log.error(str(e))
             raise e
