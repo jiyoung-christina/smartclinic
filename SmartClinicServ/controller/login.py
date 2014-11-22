@@ -61,6 +61,7 @@ def login_page():
         else:
             login_error = 'User email does not exist'
             Log.info(login_error)
+            print login_error
             return render_template('login.html'), 400  #user does not exist 출력
     else:
         return render_template('login.html')
