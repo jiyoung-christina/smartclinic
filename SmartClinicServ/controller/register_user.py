@@ -18,7 +18,8 @@ def register_user():
     Log.info(request)
     if request.method == 'POST':
         try:
-            user = User(email=request.form['email'], address=request.form['address'], password=generate_password_hash(request.form['password']),
+            user = User(email=request.form['email'], address=request.form['address'],
+                        password=generate_password_hash(request.form['password']),
                         name=request.form['name'], gender=request.form['gender'])
             dao.add(user)
             dao.commit()
