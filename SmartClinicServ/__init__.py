@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, url_for
-from flask.ext.socketio import SocketIO
 import os
 
 def print_settings(config):
@@ -64,7 +63,5 @@ def create_app():
     # 페이징 처리를 위한 템플릿 함수
     smartClinic_app.jinja_env.globals['url_for_other_page'] = \
         url_for_other_page
-    socketio = SocketIO(smartClinic_app)
 
-    return smartClinic_app, socketio
-
+    return smartClinic_app
