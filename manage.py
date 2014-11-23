@@ -14,3 +14,8 @@ if __name__ == '__main__':
     application.run(host='0.0.0.0', port=5000, debug=True)
     socketio(application)
 
+
+@socketio.on('message')
+def handle_message(message):
+    print 'test socketio'
+    print('received message: ' + message)
