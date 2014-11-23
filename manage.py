@@ -12,7 +12,7 @@ sys.setdefaultencoding("utf-8")
 application, socketio = create_app()
 
 if __name__ == '__main__':
-    application.run(host='0.0.0.0', port=5000, debug=True)
+    #application.run(host='0.0.0.0', port=5000, debug=True)
     socketio.run(application)
 
 @socketio.on('message')

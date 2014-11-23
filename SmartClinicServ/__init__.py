@@ -27,7 +27,6 @@ def url_for_other_page(page):
 
 def create_app():
     smartClinic_app = Flask(__name__)
-    socketio = SocketIO(smartClinic_app)
     # 기본 설정 운영 환경 또는 기본 설정을 변경을 하려면 실행 환경변수인 PHOTOLOG_SETTINGS에 변경할 설정을 담고 있는 파일 경로를 설정
     from SmartClinicServ.SmartClinicConfig import SmartClinicConfig
     smartClinic_app.config.from_object(SmartClinicConfig)
@@ -65,6 +64,7 @@ def create_app():
     # 페이징 처리를 위한 템플릿 함수
     smartClinic_app.jinja_env.globals['url_for_other_page'] = \
         url_for_other_page
-    
+    socketio = SocketIO(smartClinic_app)
+
     return smartClinic_app, socketio
 
