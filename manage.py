@@ -17,6 +17,7 @@ socketio = SocketIO(application)
 def handle_message(message):
     print 'test socketio'
     print('received message: ' + message)
+    socketio.emit("response ", "socket com test")
 
 if __name__ == '__main__':
      #application.run(host='0.0.0.0', port=5000, debug=True)
