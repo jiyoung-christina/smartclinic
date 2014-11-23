@@ -8,7 +8,7 @@ from SmartClinicServ.SmartClinicLogger import Log
 from SmartClinicServ.SmartClinicBlueprint import smartclinic
 from SmartClinicServ.model.user import User
 from SmartClinicServ.model.hospital import Hospital
-
+from manage import socketio
 from login import login_required
 
 @smartclinic.route('/insert_hospital', methods=['POST', 'GET'])
@@ -70,3 +70,8 @@ def hospitalInfo():
         Log.error(str(e))
         raise e
     return jsonify(hosp_name = hospitals_list)
+
+@socketio.on('message')
+def handle_message(message):
+    print 'test socketio'
+    print('received message: ' + message)
