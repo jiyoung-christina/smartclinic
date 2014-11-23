@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, url_for
+
 import os
 
 def print_settings(config):
@@ -26,7 +27,6 @@ def url_for_other_page(page):
 
 def create_app():
     smartClinic_app = Flask(__name__)
-
     # 기본 설정 운영 환경 또는 기본 설정을 변경을 하려면 실행 환경변수인 PHOTOLOG_SETTINGS에 변경할 설정을 담고 있는 파일 경로를 설정
     from SmartClinicServ.SmartClinicConfig import SmartClinicConfig
     smartClinic_app.config.from_object(SmartClinicConfig)
