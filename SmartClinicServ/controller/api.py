@@ -58,8 +58,8 @@ def apiTest():
         raise e
     return jsonify(data=user.email, kim=user.password)
 
-@smartclinic.route('/api/v1/hospital', methods=['POST'])
-def hospitalInfo():
+@smartclinic.route('/api/v1/hospitals', methods=['POST'])
+def hospitalsInfo():
     try:
         hospitals = dao.query(Hospital).all()
         hospitals_list = []
@@ -69,3 +69,15 @@ def hospitalInfo():
         Log.error(str(e))
         raise e
     return jsonify(hosp_name = hospitals_list)
+
+@smartclinic.route('/api/v1/hospital', methods=['POST'])
+def hospitalInfo():
+    try:
+        print request.form['hosp_name']
+        hospital = dao.query(Hospital).filter_by(hosp_name=request.form['hosp_name']).first()
+    except Exception as e:
+        Log.error(str(e))
+        raise e
+    return jsonify(hosp_name = hospital.hosp_name, hosp_subj = hospital.hosp_subj, hosp_call = hospital.hosp_call,
+                   hosp_addr = hospital.hosp_addr, hosp_page = hospital.hosp_page)
+
