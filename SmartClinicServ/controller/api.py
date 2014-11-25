@@ -108,6 +108,56 @@ def reservationInfo():
             error = "DB error occur : " + str(e)
             Log.error(error)
             dao.rollback
-            return jsonify(reservation='fail')
+            return jsonify(response='fail')
 
-    return jsonify(reservation='success')
+    return jsonify(response='success')
+
+
+@smartclinic.route('/api/v1/came', methods=['POST'])
+def userState():
+    try:
+        reservation = dao.query(Reservation).filter_by(hosp_name=request.form['hosp_name'], hosp_subj=request.form['hosp_subj'],
+                                                       email=request.form['email'], date=request.form['date']).first()
+        reservation.state = 'on'
+        dao.add(reservation)
+        dao.commit()
+        Log.debug(reservation)
+    except Exception as e:
+        Log.error(str(e))
+        return jsonify(response='fail')
+
+    return jsonify(response='success')
+
+@smartclinic.route('/api/v1/came', methods=['POST'])
+def userState():
+    try:
+        reservation = dao.query(Reservation).filter_by(hosp_name=request.form['hosp_name'], hosp_subj=request.form['hosp_subj'],
+                                                       email=request.form['email'], date=request.form['date']).first()
+        reservation.state = 'on'
+        dao.add(reservation)
+        dao.commit()
+        Log.debug(reservation)
+    except Exception as e:
+        Log.error(str(e))
+        return jsonify(response='fail')
+
+    return jsonify(response='success')
+
+@smartclinic.route('/api/v1/visit', methods=['GET'])
+def visitUser():
+    visit_user = []
+    reservation_user = []
+    try:
+        reservations = dao.query(Reservation).filter_by(hosp_name=request.form['hosp_name'], hosp_subj=request.form['hosp_subj'],
+                                                       date=request.form['date']).all()
+        for reservation in reservations:
+            reservation_user.append(reservation.email)
+            if reservation.state == 'on':
+                visit_user.append(reservation.email)
+
+    except Exception as e:
+        Log.error(str(e))
+        return jsonify(response='fail')
+
+    return jsonify(reservation_user=reservation_user, visit_user=visit_user)
+
