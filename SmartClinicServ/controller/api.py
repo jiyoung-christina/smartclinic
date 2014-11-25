@@ -8,6 +8,7 @@ from SmartClinicServ.SmartClinicLogger import Log
 from SmartClinicServ.SmartClinicBlueprint import smartclinic
 from SmartClinicServ.model.user import User
 from SmartClinicServ.model.hospital import Hospital
+from SmartClinicServ.model.reservation import Reservation
 from login import login_required
 
 @smartclinic.route('/insert_hospital', methods=['POST', 'GET'])
@@ -26,8 +27,8 @@ def temp_insert():
             Log.error(error)
             dao.rollback
             raise e
-        else:
-            return redirect('insert_hospital')
+
+        return redirect('insert_hospital')
     else:
         return render_template('temp_hospital.html')
 
@@ -45,8 +46,6 @@ def temp_delete():
             raise e
 
     return jsonify(hosp_name = 'test')
-
-
 
 @smartclinic.route('/api/v1/test', methods=['POST', 'GET'])
 #@login_required #postman으로 테스트할 경우 주석처리
@@ -81,3 +80,34 @@ def hospitalInfo():
     return jsonify(hosp_name = hospital.hosp_name, hosp_subj = hospital.hosp_subj, hosp_call = hospital.hosp_call,
                    hosp_addr = hospital.hosp_addr, hosp_page = hospital.hosp_page)
 
+@smartclinic.route('/api/v1/reservation', methods=['GET', 'POST'])
+def reservationInfo():
+    response_time = []
+    if request.method == 'GET':
+        try:
+            print request.args.get('hosp_name')
+            #print request.form['hosp_name'] + ' ' + request.form['hosp_subj'] + ' ' + request.form['date']
+            reservations = dao.query(Reservation).filter_by(hosp_name=request.args.get('hosp_name'), hosp_subj=request.args.get('hosp_subj'),
+                                                        date=request.args.get('date')).all()
+            print reservations
+            for reservation in reservations:
+                response_time.append(reservation.time)
+        except Exception as e:
+            Log.error(str(e))
+            raise e
+        return jsonify(time_table=response_time)
+
+    elif request.method == 'POST':
+        try:
+            reservation = Reservation(hosp_name=request.form['hosp_name'], hosp_subj=request.form['hosp_subj'], email = request.form['email'],
+                   date=request.form['date'], time=request.form['time'])
+            dao.add(reservation)
+            dao.commit()
+            Log.debug(reservation)
+        except Exception as e:
+            error = "DB error occur : " + str(e)
+            Log.error(error)
+            dao.rollback
+            return jsonify(reservation='fail')
+
+    return jsonify(reservation='success')

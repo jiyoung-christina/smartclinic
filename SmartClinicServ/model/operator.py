@@ -8,6 +8,7 @@ class Operator(Base):
     email = Column(String(100), primary_key=True)
     password = Column(String(120))
     hospital = Column(String(70))
+    subject = Column(String(50))
 
     def __init__(self, email=None, password=None, hospital=None):
         self.email = email
