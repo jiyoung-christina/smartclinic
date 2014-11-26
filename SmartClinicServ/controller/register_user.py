@@ -37,11 +37,10 @@ def register_user():
 @smartclinic.route('/user/operator_regist', methods=['GET', 'POST'])
 def register_operator_user():
     Log.info(request)
-    print request.form['hospital']
     if request.method == 'POST':
         try:
             operator = Operator(email=request.form['email'], password=generate_password_hash(request.form['password']),
-                        hospital=request.form['hospital'])
+                        hospital=request.form['hospital'], subject=request.form['subject'])
             dao.add(operator)
             dao.commit()
             Log.debug(operator)

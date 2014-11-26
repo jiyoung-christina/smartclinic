@@ -10,10 +10,11 @@ class Operator(Base):
     hospital = Column(String(70))
     subject = Column(String(50))
 
-    def __init__(self, email=None, password=None, hospital=None):
+    def __init__(self, email=None, password=None, hospital=None, subject=None):
         self.email = email
         self.password = password
         self.hospital = hospital
+        self.subject = subject
 
     def __repr__(self):
         return '<email %r>' % (self.email)
