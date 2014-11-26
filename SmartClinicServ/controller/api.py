@@ -128,21 +128,6 @@ def userState():
 
     return jsonify(response='success')
 
-@smartclinic.route('/api/v1/came', methods=['POST'])
-def userState():
-    try:
-        reservation = dao.query(Reservation).filter_by(hosp_name=request.form['hosp_name'], hosp_subj=request.form['hosp_subj'],
-                                                       email=request.form['email'], date=request.form['date']).first()
-        reservation.state = 'on'
-        dao.add(reservation)
-        dao.commit()
-        Log.debug(reservation)
-    except Exception as e:
-        Log.error(str(e))
-        return jsonify(response='fail')
-
-    return jsonify(response='success')
-
 @smartclinic.route('/api/v1/visit', methods=['GET'])
 def visitUser():
     visit_user = []
