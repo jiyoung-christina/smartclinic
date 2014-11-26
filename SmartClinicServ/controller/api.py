@@ -133,8 +133,8 @@ def visitUser():
     visit_user = []
     reservation_user = []
     try:
-        reservations = dao.query(Reservation).filter_by(hosp_name=request.form['hosp_name'], hosp_subj=request.form['hosp_subj'],
-                                                       date=request.form['date']).all()
+        reservations = dao.query(Reservation).filter_by(hosp_name=request.args.get('hosp_name'), hosp_subj=request.args.get('hosp_subj'),
+                                                       date=request.args.get('date')).all()
         for reservation in reservations:
             reservation_user.append(reservation.email)
             if reservation.state == 'on':
