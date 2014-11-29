@@ -20,7 +20,7 @@ def register_user():
         try:
             user = User(email=request.form['email'], address=request.form['address'],
                         password=generate_password_hash(request.form['password']),
-                        name=request.form['name'], gender=request.form['gender'])
+                        name=request.form['name'], gender=request.form['gender'], language=request.form['language'])
             dao.add(user)
             dao.commit()
             Log.debug(user)
@@ -40,7 +40,7 @@ def register_operator_user():
     if request.method == 'POST':
         try:
             operator = Operator(email=request.form['email'], password=generate_password_hash(request.form['password']),
-                        hospital=request.form['hospital'], subject=request.form['subject'])
+                        hospital=request.form['hospital'], language=request.form['language'])
             dao.add(operator)
             dao.commit()
             Log.debug(operator)
@@ -68,7 +68,6 @@ def __get_user(email):
 @smartclinic.route('/user/check_name', methods=['POST'])
 def check_name():
     username = request.json['username']
-    #: DB에서 username 중복 확인
     if __get_user(username) :
         return jsonify(result = False)
     else:
