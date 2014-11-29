@@ -10,7 +10,7 @@ class Hospital(Base):
     hosp_addr = Column(String(120))
     hosp_call = Column(String(50))
     hosp_page = Column(String(100))
-
+#hotels. price. 쿠폰 추가 sunj삭제
     def __init__(self, hosp_name=None, hosp_subj=None, hosp_addr=None, hosp_call=None, hosp_page=None):
         self.hosp_name = hosp_name
         self.hosp_subj = hosp_subj

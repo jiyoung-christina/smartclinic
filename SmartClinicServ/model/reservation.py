@@ -12,7 +12,7 @@ class Reservation(Base):
     date = Column(String(50))
     time = Column(String(50))
     state = Column(String(20))
-
+    #purpose 목적, subj삭제
     def __init__(self, hosp_name=None, hosp_subj=None, email=None, date=None, time=None, state='off'):
         self.hosp_name = hosp_name
         self.hosp_subj = hosp_subj

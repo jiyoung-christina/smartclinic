@@ -9,7 +9,7 @@ class Operator(Base):
     password = Column(String(120))
     hospital = Column(String(70))
     subject = Column(String(50))
-
+#name, language(전문) suj삭제
     def __init__(self, email=None, password=None, hospital=None, subject=None):
         self.email = email
         self.password = password

@@ -100,7 +100,7 @@ def reservationInfo():
     elif request.method == 'POST':
         try:
             reservation = Reservation(hosp_name=request.form['hosp_name'], hosp_subj=request.form['hosp_subj'], email = request.form['email'],
-                   date=request.form['date'], time=request.form['time'])
+                   date=request.form['date'], time=request.form['time'])  #purpose , language 추가
             dao.add(reservation)
             dao.commit()
             Log.debug(reservation)
@@ -118,7 +118,7 @@ def userState():
     try:
         reservation = dao.query(Reservation).filter_by(hosp_name=request.form['hosp_name'], hosp_subj=request.form['hosp_subj'],
                                                        email=request.form['email'], date=request.form['date']).first()
-        reservation.state = 'on'
+        reservation.state = 'on'  #hostsubj 삭제 , language추가 ,
         dao.add(reservation)
         dao.commit()
         Log.debug(reservation)
@@ -126,7 +126,7 @@ def userState():
         Log.error(str(e))
         return jsonify(response='fail')
 
-    return jsonify(response='success')
+    return jsonify(response='success') #name = 해당병원전문가 언어에따른
 
 @smartclinic.route('/api/v1/visit', methods=['GET'])
 def visitUser():
@@ -134,7 +134,7 @@ def visitUser():
     reservation_user = []
     try:
         reservations = dao.query(Reservation).filter_by(hosp_name=request.args.get('hosp_name'), hosp_subj=request.args.get('hosp_subj'),
-                                                       date=request.args.get('date')).all()
+                                                       date=request.args.get('date')).all() #hosp_subj삭제
         for reservation in reservations:
             reservation_user.append(reservation.email)
             if reservation.state == 'on':
@@ -146,3 +146,4 @@ def visitUser():
 
     return jsonify(reservation_user=reservation_user, visit_user=visit_user)
 
+#개인 예약정보를 리턴하는 api추가 /api/v1/patient

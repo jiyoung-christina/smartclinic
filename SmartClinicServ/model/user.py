@@ -10,7 +10,7 @@ class User(Base):
     password = Column(String(120))
     name = Column(String(30))
     gender = Column(String(10))
-
+#language 내나라
     def __init__(self, email=None, address=None, password=None, name=None, gender=None):
         self.email = email
         self.address = address
