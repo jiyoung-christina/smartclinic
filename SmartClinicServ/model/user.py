@@ -11,7 +11,7 @@ class User(Base):
     name = Column(String(30))
     gender = Column(String(10))
     language = Column(String(30))
-#language 내나라
+
     def __init__(self, email=None, address=None, password=None, name=None, gender=None, language=None):
         self.email = email
         self.address = address

@@ -10,7 +10,6 @@ class Operator(Base):
     hospital = Column(String(70))
     language = Column(String(30))
     name = Column(String(20))
-#name, language(전문) suj삭제
 
     def __init__(self, email=None, password=None, hospital=None, language=None, name=None):
         self.email = email
