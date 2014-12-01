@@ -86,7 +86,7 @@ def hospitalInfo():
     except Exception as e:
         Log.error(str(e))
         raise e
-    return jsonify(hosp_name=hospital.hosp_name, hosp_call=hospital.hosp_call, hosp_addr=hospital.hosp_addr, hosp_page=hospital.hosp_page, hotels=hospital.hotels, price=hospital.price, coupon=hospital.coupon)
+    return jsonify(hospital = hospital)
 
 @smartclinic.route('/api/v1/reservation', methods=['GET', 'POST'])
 def reservationInfo():
@@ -95,7 +95,7 @@ def reservationInfo():
         try:
             print request.args.get('hosp_name')
             #print request.form['hosp_name'] + ' ' + request.form['hosp_subj'] + ' ' + request.form['date']
-            reservations = dao.query(Reservation).filter_by(hosp_name=request.args.get('hosp_name'), hosp_subj=request.args.get('hosp_subj'),
+            reservations = dao.query(Reservation).filter_by(hosp_name=request.args.get('hosp_name'),
                                                         date=request.args.get('date')).all()
             print reservations
             for reservation in reservations:
