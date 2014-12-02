@@ -79,7 +79,11 @@ def hospitalInfo():
     except Exception as e:
         Log.error(str(e))
         raise e
-    return jsonify(hospital = hospital.hosp_name)
+
+    return jsonify(hosp_name=hospital.hosp_name, hosp_call=hospital.hosp_call,
+                       hosp_addr=hospital.hosp_addr, hosp_page=hospital.hosp_page,
+                       hotels=hospital.hotels, price=hospital.price, coupon=hospital.coupon)
+
 
 @smartclinic.route('/api/v1/reservation', methods=['GET', 'POST'])
 def reservationInfo():
