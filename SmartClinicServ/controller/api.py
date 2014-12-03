@@ -54,6 +54,7 @@ def temp_delete():
 
 @smartclinic.route('/api/v1/test', methods=['POST', 'GET'])
 def apiTest():
+    print 'start'
     sendemail('lacidjun@gmail.com', 'request limousin reservation', 'aa' + 'bb= ' + 'cccc')
     print 'error???'
     return jsonify(data='fail')
@@ -210,10 +211,10 @@ def sendemail(to_addr_list, subject, message, smtpserver='smtp.gmail.com:587'):
     header += 'To: %s\n' % ','.join(to_addr_list)
     header += 'Subject: %s\n\n' % subject
     message = header + message
-
+    print message
     server = smtplib.SMTP(smtpserver)
     server.starttls()
     server.login('ggamcong119@gmail.com','qorwlgns119')
-    problems = server.sendmail(from_addr, to_addr_list, message)
+    problems = server.sendmail('ggamcong119@gmail.com', to_addr_list, message)
     print 'test '
     server.quit()
