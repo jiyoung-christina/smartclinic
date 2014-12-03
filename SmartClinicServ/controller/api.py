@@ -57,7 +57,7 @@ def temp_delete():
 @smartclinic.route('/api/v1/test', methods=['POST', 'GET'])
 def apiTest():
     print 'start'
-    msg = Message('Hello',sender='ggamcong119@dgoogle.com',recipients=['lacidjun@gmail.com'])
+    msg = Message('Hello',sender='ggamcong119@gmail.com',recipients=['lacidjun@gmail.com'])
     msg.body="This is the email body"
     mail.send(msg)
     #sendemail('lacidjun@gmail.com', 'request limousin reservation', 'aa' + 'bb= ' + 'cccc')
@@ -85,8 +85,8 @@ def hospitalInfo():
         print "except"
         Log.error(str(e))
         raise e
-    return jsonify(hospital=hospital)
-
+    return jsonify(hosp_name=hospital.hosp_name, hosp_addr=hospital.hosp_addr,
+                   hotels=hospital.hotels, price=hospital.price, coupon=hospital.coupon)
 
 @smartclinic.route('/api/v1/reservation', methods=['GET', 'POST'])
 def reservationInfo():
