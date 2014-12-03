@@ -19,8 +19,8 @@ def temp_insert():
     if request.method == 'POST':
         try:
             hospital = Hospital(hosp_name = request.form['hosp_name'], hosp_call = request.form['hosp_call'],
-                   hosp_addr = request.form['hosp_addr'], hosp_page = request.form['hosp_page'],
-                   hotels=request.form['hotels'], price=request.form['price'], coupon=request.form['coupon'])
+                   hosp_addr = request.form['hosp_addr'], hotels=request.form['hotels'],
+                   price=request.form['price'], coupon=request.form['coupon'])
             dao.add(hospital)
             dao.commit()
             Log.debug(hospital)
@@ -75,20 +75,11 @@ def hospitalsInfo():
 def hospitalInfo():
     try:
         hospital = dao.query(Hospital).filter_by(hosp_name=request.form['hosp_name']).first()
-        print "try"
 
     except Exception as e:
         print "except"
         Log.error(str(e))
         raise e
-    print hospital.hosp_name
-    print hospital.price
-    print hospital.hotels
-    print hospital.coupon
-    print hospital.hosp_page
-    print hospital.hosp_addr
-    print hospital.hosp_call
-    print "hospital end"
     return jsonify(hospital=hospital)
 
 
