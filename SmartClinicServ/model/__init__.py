@@ -3,4 +3,4 @@ __author__ = 'lacidjun'
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
-__all__ = ['user', 'operator', 'hospital', 'reservation']
+__all__ = ['user', 'operator', 'hospital', 'reservation', 'guide', 'limousin']

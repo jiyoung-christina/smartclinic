@@ -10,7 +10,10 @@ from SmartClinicServ.model.user import User
 from SmartClinicServ.model.hospital import Hospital
 from SmartClinicServ.model.reservation import Reservation
 from SmartClinicServ.model.operator import Operator
+from SmartClinicServ.model.limousin import Limousin
+from SmartClinicServ.model.guide import Guide
 from login import login_required
+import smtplib
 
 @smartclinic.route('/insert_hospital', methods=['POST', 'GET'])
 #임시 병원 입력 페이지
@@ -52,6 +55,7 @@ def temp_delete():
 @smartclinic.route('/api/v1/test', methods=['POST', 'GET'])
 #@login_required #postman으로 테스트할 경우 주석처리
 def apiTest():
+    sendemail('lacidjun@gmail.com', 'request limousin reservation', 'aa' + 'bb= ' + 'cccc')
     try:
         user = dao.query(User).filter_by(email=request.form['id']).first()
     except Exception as e:
@@ -165,3 +169,55 @@ def patientInfo():
     except Exception as e:
         Log.error(str(e))
         return jsonify(response='fail')
+
+@smartclinic.route('/api/v1/guide', methods=['GET','POST'])
+def guideInfo():
+    try:
+        guide = Guide(language=request.form['language'], period=request.form['period'], email = request.form['email'],
+                party=request.form['party'], name=request.form['name'])  #purpose 추가
+        dao.add(guide)
+        dao.commit()
+        Log.debug(guide)
+    except Exception as e:
+        error = "DB error occur : " + str(e)
+        Log.error(error)
+        return jsonify(response='fail')
+    return jsonify(response='success')
+
+@smartclinic.route('/api/v1/limousin', methods=['GET','POST'])
+def remousinInfo():
+    try:
+        limousin = Limousin(airport=request.form['airport'], aircraft=request.form['aircraft'], email = request.form['email'],
+                depart_date=request.form['depart_date'], depart_time=request.form['depart_time'], name=request.form['name'])  #purpose 추가
+        dao.add(limousin)
+        dao.commit()
+        Log.debug(limousin)
+    except Exception as e:
+        error = "DB error occur : " + str(e)
+        Log.error(error)
+        return jsonify(response='fail')
+    return jsonify(response='success')
+
+@smartclinic.route('/api/v1/admin', methods=['GET'])
+def getAdminHospital():
+    try:
+        operator = dao.query(Operator).filter_by(email=request.args.get('email')).first() #hosp_subj삭제
+    except Exception as e:
+        Log.error(str(e))
+        return jsonify(response='fail')
+
+    return jsonify(hospital=operator.hospital)
+
+
+
+def sendemail(to_addr_list, subject, message, smtpserver='smtp.gmail.com:587'):
+    header  = 'From: ggamcong119@gmail.com\n'
+    header += 'To: %s\n' % ','.join(to_addr_list)
+    header += 'Subject: %s\n\n' % subject
+    message = header + message
+
+    server = smtplib.SMTP(smtpserver)
+    server.starttls()
+    server.login('ggamcong119@gmail.com','qorwlgns119')
+    problems = server.sendmail(from_addr, to_addr_list, message)
+    server.quit()
