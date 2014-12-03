@@ -75,8 +75,10 @@ def hospitalsInfo():
 def hospitalInfo():
     try:
         hospital = dao.query(Hospital).filter_by(hosp_name=request.form['hosp_name']).first()
+        print "try"
 
     except Exception as e:
+        print "except"
         Log.error(str(e))
         raise e
     print hospital.hosp_name
@@ -84,7 +86,7 @@ def hospitalInfo():
     print hospital.hotels
     print hospital.coupon
     print hospital.hosp_page
-
+    print "hospital end"
     return jsonify(hospital=hospital)
 
 
