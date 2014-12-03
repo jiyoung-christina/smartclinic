@@ -28,9 +28,9 @@ class DBManager:
             DEBUG=True,
             #EMAIL SETTINGS
             MAIL_SERVER='smtp.gmail.com',
-            MAIL_PORT=25,
+            MAIL_PORT=465,
             MAIL_USE_SSL=True,
-            MAIL_USERNAME='ggamcong119@google.com',
+            MAIL_USERNAME='ggamcong119@gmail.com',
             MAIL_PASSWORD='qorwlgns119')
         global mail
         mail = Mail(app)
