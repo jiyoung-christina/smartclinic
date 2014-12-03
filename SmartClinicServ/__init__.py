@@ -45,7 +45,7 @@ def create_app():
     db_url = smartClinic_app.config['DB_URL'] + db_file
     Log.info(db_url)
     DBManager.init(db_url, eval(smartClinic_app.config['DB_LOG_FLAG']))
-    DBManager.init_db()
+    DBManager.init_db(smartClinic_app)
        
     # 뷰 함수 모듈은 어플리케이션 객체 생성하고 블루프린트 등록전에 
     # 뷰 함수가 있는 모듈을 임포트해야 해당 뷰 함수들을 인식할 수 있음
