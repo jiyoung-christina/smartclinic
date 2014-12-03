@@ -86,6 +86,8 @@ def hospitalInfo():
     print hospital.hotels
     print hospital.coupon
     print hospital.hosp_page
+    print hospital.hosp_addr
+    print hospital.hosp_call
     print "hospital end"
     return jsonify(hospital=hospital)
 
