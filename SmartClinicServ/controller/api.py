@@ -79,6 +79,11 @@ def hospitalInfo():
     except Exception as e:
         Log.error(str(e))
         raise e
+    print hospital.hosp_name
+    print hospital.price
+    print hospital.hotels
+    print hospital.coupon
+    print hospital.hosp_page
 
     return jsonify(hosp_name=hospital.hosp_name, hosp_call=hospital.hosp_call,
                        hosp_addr=hospital.hosp_addr, hosp_page=hospital.hosp_page,
