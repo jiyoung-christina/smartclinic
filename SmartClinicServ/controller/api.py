@@ -53,9 +53,9 @@ def temp_delete():
     return jsonify(hosp_name = 'test')
 
 @smartclinic.route('/api/v1/test', methods=['POST', 'GET'])
-#@login_required #postman으로 테스트할 경우 주석처리
 def apiTest():
     sendemail('lacidjun@gmail.com', 'request limousin reservation', 'aa' + 'bb= ' + 'cccc')
+    print 'error???'
     return jsonify(data='fail')
 
 @smartclinic.route('/api/v1/hospitals', methods=['POST'])
@@ -215,4 +215,5 @@ def sendemail(to_addr_list, subject, message, smtpserver='smtp.gmail.com:587'):
     server.starttls()
     server.login('ggamcong119@gmail.com','qorwlgns119')
     problems = server.sendmail(from_addr, to_addr_list, message)
+    print 'test '
     server.quit()
