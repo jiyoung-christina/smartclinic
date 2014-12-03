@@ -57,11 +57,11 @@ def temp_delete():
 def apiTest():
     sendemail('lacidjun@gmail.com', 'request limousin reservation', 'aa' + 'bb= ' + 'cccc')
     try:
-        user = dao.query(User).filter_by(email=request.form['id']).first()
+        #user = dao.query(User).filter_by(email=request.form['id']).first()
     except Exception as e:
         Log.error(str(e))
         raise e
-    return jsonify(data=user.email, kim=user.password)
+    return jsonify(data=user.email)
 
 @smartclinic.route('/api/v1/hospitals', methods=['POST'])
 def hospitalsInfo():
