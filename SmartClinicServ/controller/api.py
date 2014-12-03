@@ -206,15 +206,15 @@ def getAdminHospital():
 
 
 
-def sendemail(to_addr_list, subject, message, smtpserver='smtp.gmail.com:587'):
+def sendemail(to_addr, subject, message, smtpserver='smtp.gmail.com:587'):
     header  = 'From: ggamcong119@gmail.com\n'
-    header += 'To: %s\n' % ','.join(to_addr_list)
+    header += 'To: %s\n' % to_addr
     header += 'Subject: %s\n\n' % subject
     message = header + message
     print message
     server = smtplib.SMTP(smtpserver)
     server.starttls()
     server.login('ggamcong119@gmail.com','qorwlgns119')
-    problems = server.sendmail('ggamcong119@gmail.com', to_addr_list, message)
+    problems = server.sendmail('ggamcong119@gmail.com', to_addr, message)
     print 'test '
     server.quit()
