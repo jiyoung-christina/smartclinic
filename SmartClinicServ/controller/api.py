@@ -56,12 +56,7 @@ def temp_delete():
 #@login_required #postman으로 테스트할 경우 주석처리
 def apiTest():
     sendemail('lacidjun@gmail.com', 'request limousin reservation', 'aa' + 'bb= ' + 'cccc')
-    try:
-        #user = dao.query(User).filter_by(email=request.form['id']).first()
-    except Exception as e:
-        Log.error(str(e))
-        raise e
-    return jsonify(data=user.email)
+    return jsonify(data='fail')
 
 @smartclinic.route('/api/v1/hospitals', methods=['POST'])
 def hospitalsInfo():
