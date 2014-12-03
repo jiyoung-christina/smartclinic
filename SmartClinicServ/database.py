@@ -30,9 +30,8 @@ class DBManager:
             MAIL_SERVER='smtp.gmail.com',
             MAIL_PORT=465,
             MAIL_USE_SSL=True,
-            MAIL_USERNAME = 'ggamcong119@google.com',
-            MAIL_PASSWORD = 'qorwlgns119'
-	        )
+            MAIL_USERNAME='ggamcong119@google.com',
+            MAIL_PASSWORD='qorwlgns119')
         global mail
         mail = Mail(app)
 dao = None
