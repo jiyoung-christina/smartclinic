@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-
+from flask.ext.mail import Mail
 
 class DBManager:
     __engine = None
@@ -19,9 +19,21 @@ class DBManager:
         dao = DBManager.__session
 
     @staticmethod
-    def init_db():
+    def init_db(app):
         from SmartClinicServ.model import *
         from SmartClinicServ.model import Base
         Base.metadata.create_all(bind=DBManager.__engine)
 
+        app.config.update(
+            DEBUG=True,
+            #EMAIL SETTINGS
+            MAIL_SERVER='smtp.gmail.com',
+            MAIL_PORT=465,
+            MAIL_USE_SSL=True,
+            MAIL_USERNAME = 'ggamcong119@google.com',
+            MAIL_PASSWORD = 'qorwlgns119'
+	        )
+        global mail
+        mail = Mail(app)
 dao = None
+mail = None

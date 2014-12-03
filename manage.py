@@ -12,16 +12,6 @@ reload(sys)
 sys.setdefaultencoding("utf-8")
 
 application = create_app()
-application.config.update(
-    DEBUG=True,
-    #EMAIL SETTINGS
-    MAIL_SERVER='smtp.gmail.com',
-    MAIL_PORT=465,
-    MAIL_USE_SSL=True,
-    MAIL_USERNAME = 'ggamcong119@google.com',
-    MAIL_PASSWORD = 'qorwlgns119'
-	)
-mail = Mail(application)
 socketio = SocketIO(application)
 
 @socketio.on('message')

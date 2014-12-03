@@ -4,6 +4,7 @@ __author__ = 'lacidjun'
 from flask import render_template, request, current_app, session, redirect, url_for, jsonify
 from flask.ext.mail import Message
 from SmartClinicServ.database import dao
+from SmartClinicServ.database import mail
 from SmartClinicServ.SmartClinicLogger import Log
 from SmartClinicServ.SmartClinicBlueprint import smartclinic
 from SmartClinicServ.model.user import User
@@ -12,7 +13,6 @@ from SmartClinicServ.model.reservation import Reservation
 from SmartClinicServ.model.operator import Operator
 from SmartClinicServ.model.limousin import Limousin
 from SmartClinicServ.model.guide import Guide
-from manage import mail
 from login import login_required
 
 import smtplib
