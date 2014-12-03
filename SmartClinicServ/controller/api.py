@@ -179,10 +179,16 @@ def guideInfo():
         dao.add(guide)
         dao.commit()
         Log.debug(guide)
+
     except Exception as e:
         error = "DB error occur : " + str(e)
         Log.error(error)
         return jsonify(response='fail')
+
+    msg = Message('Hello',sender='ggamcong119@gmail.com',recipients=['kjy8620@gmail.com'])
+    msg.body="language = " + guide.language + "\n period = " + guide.period + "\n party =" + \
+             guide.party + "\n email and name = " + guide.email + " " + guide.name
+    mail.send(msg)
     return jsonify(response='success')
 
 @smartclinic.route('/api/v1/limousin', methods=['GET','POST'])
@@ -197,30 +203,20 @@ def remousinInfo():
         error = "DB error occur : " + str(e)
         Log.error(error)
         return jsonify(response='fail')
+
+    msg = Message('Hello',sender='ggamcong119@gmail.com',recipients=['kjy8620@gmail.com'])
+    msg.body="airport = " + limousin.airport + "\n aircraft = " + limousin.aircraft + "\n depart_date_time =" + \
+             limousin.depart_date + limousin.depart_time + "\n email and name = " + limousin.email + " " + limousin.name
+    mail.send(msg)
     return jsonify(response='success')
 
-@smartclinic.route('/api/v1/admin', methods=['GET'])
+@smartclinic.route('/api/v1/admin', methods=['POST'])
 def getAdminHospital():
     try:
-        operator = dao.query(Operator).filter_by(email=request.args.get('email')).first() #hosp_subj삭제
+        operator = dao.query(Operator).filter_by(email=request.form['email']).first() #hosp_subj삭제
     except Exception as e:
         Log.error(str(e))
         return jsonify(response='fail')
 
     return jsonify(hospital=operator.hospital)
 
-
-
-def sendemail(to_addr, subject, message, smtpserver='smtp.gmail.com:587'):
-    header  = 'From: ggamcong119@gmail.com\n'
-    header += 'To: %s\n' % to_addr
-    header += 'Subject: %s\n\n' % subject
-    message = header + message
-    print message
-    server = smtplib.SMTP(smtpserver)
-    server.starttls()
-    server.login('ggamcong119@gmail.com','qorwlgns119')
-    problems = server.sendmail('ggamcong119@gmail.com', to_addr, message)
-    print 'test '
-    print problems
-    server.quit()
