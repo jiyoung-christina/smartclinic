@@ -217,4 +217,5 @@ def sendemail(to_addr, subject, message, smtpserver='smtp.gmail.com:587'):
     server.login('ggamcong119@gmail.com','qorwlgns119')
     problems = server.sendmail('ggamcong119@gmail.com', to_addr, message)
     print 'test '
+    print problems
     server.quit()
