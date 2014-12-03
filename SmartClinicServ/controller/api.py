@@ -2,7 +2,7 @@ __author__ = 'lacidjun'
 # -*- coding: utf-8 -*-
 
 from flask import render_template, request, current_app, session, redirect, url_for, jsonify
-
+from flask.ext.mail import Message
 from SmartClinicServ.database import dao
 from SmartClinicServ.SmartClinicLogger import Log
 from SmartClinicServ.SmartClinicBlueprint import smartclinic
@@ -12,7 +12,9 @@ from SmartClinicServ.model.reservation import Reservation
 from SmartClinicServ.model.operator import Operator
 from SmartClinicServ.model.limousin import Limousin
 from SmartClinicServ.model.guide import Guide
+from manage import mail
 from login import login_required
+
 import smtplib
 
 @smartclinic.route('/insert_hospital', methods=['POST', 'GET'])
@@ -55,7 +57,10 @@ def temp_delete():
 @smartclinic.route('/api/v1/test', methods=['POST', 'GET'])
 def apiTest():
     print 'start'
-    sendemail('lacidjun@gmail.com', 'request limousin reservation', 'aa' + 'bb= ' + 'cccc')
+    msg = Message('Hello',sender='ggamcong119@dgoogle.com',recipients=['lacidjun@gmail.com'])
+    msg.body="This is the email body"
+    mail.send(msg)
+    #sendemail('lacidjun@gmail.com', 'request limousin reservation', 'aa' + 'bb= ' + 'cccc')
     print 'error???'
     return jsonify(data='fail')
 
