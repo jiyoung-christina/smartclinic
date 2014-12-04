@@ -126,6 +126,7 @@ def userState():
     try:
         reservation = dao.query(Reservation).filter_by(hosp_name=request.form['hosp_name'], email=request.form['email'],
                                                        date=request.form['date']).first()
+        print 'start'
         reservation.state = 'on'
         dao.add(reservation)
         dao.commit()
