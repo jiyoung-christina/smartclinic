@@ -40,7 +40,7 @@ def register_operator_user():
     if request.method == 'POST':
         try:
             operator = Operator(email=request.form['email'], password=generate_password_hash(request.form['password']),
-                        hospital=request.form['hospital'], language=request.form['language'])
+                        hospital=request.form['hospital'], language=request.form['language'], name=request.form['name'])
             dao.add(operator)
             dao.commit()
             Log.debug(operator)
