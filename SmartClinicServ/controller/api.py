@@ -129,6 +129,7 @@ def userState():
         reservation.state = 'on'
         dao.add(reservation)
         dao.commit()
+        print 'reservation'
         Log.debug(reservation)
     except Exception as e:
         Log.error(str(e))
@@ -136,11 +137,14 @@ def userState():
 
     try:
         user = dao.query(User).filter_by(email=request.form['email']).first()
+        print 'user query'
         operator = dao.query(Operator).filter_by(hospital=reservation.hosp_name, language=user.language).first()
-        return jsonify(name=operator.name)  #name = 해당병원전문가 리턴
+
     except Exception as e:
         Log.error(str(e))
         return jsonify(resoponse='fail')
+    print 'operator name'
+    return jsonify(name=operator.name)  #name = 해당병원전문가 리턴
 
 @smartclinic.route('/api/v1/visit', methods=['GET'])
 def visitUser():
