@@ -23,42 +23,7 @@ def handle_message(message):
 
 @socketio.on('message')
 def exchange_message(message, room):
-    print room
     socketio.emit('message', message, room=room)
-
-# @socketio.on('random create or join')
-# def handle_random_room(room):
-#     if(room == '') {
-#             client.hkeys("rooms key", function (err, replies) {
-#                 console.log("replies num " + replies.length);
-#                 if(replies.length > 1) {
-#                     room = replies[1];
-#                     client.hdel("rooms key", room);
-#                     console.log("delete room ", room);
-#                 }
-#                 else {
-#                     room = uuid();
-#                     client.hset("rooms key", room, 'for global or gender option ', redis.print);
-#                 }
-#             });
-#         }
-#
-#         var numClients = io.sockets.clients(room).length; //clients in room
-#
-#         log('RandomRoom ' + room + ' has ' + numClients + ' client(s)');
-#         log('Request to create or join room', room);
-#
-#         if (numClients == 0){
-#             socket.join(room);
-#             socket.emit('created', room);
-#
-#         } else if (numClients == 1) {
-#             io.sockets.in(room).emit('join', room);
-#             socket.join(room);
-#             socket.emit('joined', room);
-#         } else {
-#             socket.emit('full', room);
-#         }
 
 @socketio.on('create or join')
 def handle_spec_room(room):

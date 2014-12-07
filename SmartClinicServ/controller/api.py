@@ -23,8 +23,8 @@ def temp_insert():
     Log.info(request)
     if request.method == 'POST':
         try:
-            hospital = Hospital(hosp_name = request.form['hosp_name'], hosp_call = request.form['hosp_call'],
-                   hosp_addr = request.form['hosp_addr'], hotels=request.form['hotels'],
+            hospital = Hospital(hosp_name = request.form['hosp_name'], hosp_page = request.form['hosp_page'],
+                   hosp_addr = request.form['hosp_addr'], hotels=request.form['hotels'], hotel_page=request.form['hotel_page'],
                    price=request.form['price'], coupon=request.form['coupon'])
             dao.add(hospital)
             dao.commit()
@@ -54,27 +54,19 @@ def temp_delete():
 
     return jsonify(hosp_name = 'test')
 
-@smartclinic.route('/api/v1/test', methods=['POST', 'GET'])
-def apiTest():
-    print 'start'
-    msg = Message('Hello',sender='ggamcong119@gmail.com',recipients=['lacidjun@gmail.com'])
-    msg.body="This is the email body"
-    mail.send(msg)
-    #sendemail('lacidjun@gmail.com', 'request limousin reservation', 'aa' + 'bb= ' + 'cccc')
-    print 'error???'
-    return jsonify(data='fail')
-
 @smartclinic.route('/api/v1/hospitals', methods=['POST'])
 def hospitalsInfo():
     try:
         hospitals = dao.query(Hospital).all()
         hospitals_list = []
+        price_list = []
         for hospital in hospitals:
             hospitals_list.append(hospital.hosp_name)
+            price_list.append(hospital.price)
     except Exception as e:
         Log.error(str(e))
         raise e
-    return jsonify(hosp_name = hospitals_list)
+    return jsonify(hosp_name=hospitals_list, price=price_list)
 
 @smartclinic.route('/api/v1/hospital', methods=['POST'])
 def hospitalInfo():
@@ -107,7 +99,7 @@ def reservationInfo():
 
     elif request.method == 'POST':
         try:
-            reservation = Reservation(hosp_name=request.form['hosp_name'], purpose=request.form['purpose'], email = request.form['email'],
+            reservation = Reservation(hosp_name=request.form['hosp_name'], purpose=request.form['purpose'], email=request.form['email'], period=request.form['period'],
                    date=request.form['date'], time=request.form['time'])  #purpose 추가
             dao.add(reservation)
             dao.commit()
@@ -138,6 +130,8 @@ def userState():
 
     try:
         user = dao.query(User).filter_by(email=request.form['email']).first()
+        print user.language
+        print reservation.hosp_name
         print 'user query'
         operator = dao.query(Operator).filter_by(hospital=reservation.hosp_name, language=user.language).first()
 
@@ -145,7 +139,7 @@ def userState():
         Log.error(str(e))
         return jsonify(resoponse='fail')
     print 'operator name'
-    return jsonify(name=operator.name)  #name = 해당병원전문가 리턴
+    return jsonify(name=operator.name)
 
 @smartclinic.route('/api/v1/visit', methods=['GET'])
 def visitUser():
@@ -179,7 +173,7 @@ def patientInfo():
 @smartclinic.route('/api/v1/guide', methods=['GET','POST'])
 def guideInfo():
     try:
-        guide = Guide(language=request.form['language'], period=request.form['period'], email = request.form['email'],
+        guide = Guide(language=request.form['language'], period=request.form['period'], email=request.form['email'],
                 party=request.form['party'], name=request.form['name'])  #purpose 추가
         dao.add(guide)
         dao.commit()
@@ -197,7 +191,7 @@ def guideInfo():
     return jsonify(response='success')
 
 @smartclinic.route('/api/v1/limousin', methods=['GET','POST'])
-def remousinInfo():
+def limousinInfo():
     try:
         limousin = Limousin(airport=request.form['airport'], aircraft=request.form['aircraft'], email = request.form['email'],
                 depart_date=request.form['depart_date'], depart_time=request.form['depart_time'], name=request.form['name'])  #purpose 추가
@@ -225,3 +219,18 @@ def getAdminHospital():
 
     return jsonify(hospital=operator.hospital)
 
+@smartclinic.route('/api/v1/patientReservation', methods=['POST'])
+def getPatientReservation():
+    try:
+        reservations = dao.query(Reservation).filter_by(email=request.form['email']).all()
+        hosp_name_list = []
+        date_list = []
+        for reservation in reservations:
+            hosp_name_list.append(reservation.hosp_name)
+            date_list.append(reservation.date)
+
+    except Exception as e:
+        Log.error(str(e))
+        return jsonify(response='fail')
+
+    return jsonify(hosp_name=hosp_name_list, date=date_list)
