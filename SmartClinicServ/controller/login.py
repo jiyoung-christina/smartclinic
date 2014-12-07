@@ -105,3 +105,6 @@ def admin_login():
     else:
         return render_template('admin_login.html')
 
+@smartclinic.route('/video', methods=['GET', 'POST'])
+def video_call():
+    return render_template('video_page.html')

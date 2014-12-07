@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% endblock %}
+
+{% block contents %}
+<!-- BEGIN PAGE HEADER-->
+<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">
+					SmartClinic <small>Welcome to Your Private Clinic</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="index">Home</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="#">SmartClinic</a>
+						</li>
+						<li class="pull-right">
+							<div id="dashboard-report-range" class="dashboard-date-range tooltips" data-placement="top" data-original-title="Change dashboard date range">
+								<i class="fa fa-calendar"></i>
+								<span>
+								</span>
+								<i class="fa fa-angle-down"></i>
+							</div>
+						</li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+<!-- BEGIN PAGE CONTENT-->
+
+         <div id='container'>
+            <div id='videos'>
+                <video id='localVideo' autoplay muted></video>
+                <video id='remoteVideo' autoplay></video>
+            </div>
+
+        <div id='textareas'>
+        <textarea id="dataChannelSend" disabled placeholder="Press Start, enter some text, then press Send."></textarea>
+        <textarea id="dataChannelReceive" disabled></textarea>
+        </div>
+        <div id='receiveData'>
+        </div>
+        <button id="sendButton" disabled>Send</button>
+
+</div>
+<!-- END PAGE CONTENT-->
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+<script src='assets/scripts/lib/adapter.js'></script>
+<script src='assets/scripts/main.js'></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+{% endblock %}
