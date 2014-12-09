@@ -23,8 +23,7 @@ def temp_insert():
     Log.info(request)
     if request.method == 'POST':
         try:
-            hospital = Hospital(hosp_name = request.form['hosp_name'], hosp_page = request.form['hosp_page'],
-                   hosp_addr = request.form['hosp_addr'], hotels=request.form['hotels'], hotel_page=request.form['hotel_page'],
+            hospital = Hospital(hosp_name = request.form['hosp_name'], hosp_addr = request.form['hosp_addr'], hotels=request.form['hotels'],
                    price=request.form['price'], coupon=request.form['coupon'])
             dao.add(hospital)
             dao.commit()

@@ -7,17 +7,13 @@ class Hospital(Base):
     __tablename__ = 'hospitals'
     hosp_name = Column(String(100), primary_key=True)
     hosp_addr = Column(String(120))
-    hosp_page = Column(String(100))
     hotels = Column(String(1000))
-    hotel_page = Column(String(1000))
     price = Column(String(30))
     coupon = Column(String(1000))
 
-    def __init__(self, hosp_name=None, hosp_addr=None, hosp_page=None, hotel_page=None, hotels=None, price=None, coupon=None):
+    def __init__(self, hosp_name=None, hosp_addr=None, hotels=None, price=None, coupon=None):
         self.hosp_name = hosp_name
         self.hosp_addr = hosp_addr
-        self.hosp_page = hosp_page
-        self.hotel_page = hotel_page
         self.hotels = hotels
         self.price = price
         self.coupon = coupon
