@@ -88,7 +88,7 @@ def admin_login():
     Log.info('ADMIN login page')
     if request.method == 'POST':
         try:
-            email = dao.query(Operator).filter_by(email = request.form['email']).first()
+            email = dao.query(Operator).filter_by(email=request.form['email']).first()
         except Exception as e:
             Log.error(str(e))
             raise e
